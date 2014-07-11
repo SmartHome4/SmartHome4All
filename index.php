@@ -10,7 +10,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
+        <?php   include 'SmartAPI.php';
+        $smdb = new SmartAPI();
+        $smdb->connect("localhost", "root", "");
+        $smdb->Get_Api();
+        
         ?>
     </body>
 </html>

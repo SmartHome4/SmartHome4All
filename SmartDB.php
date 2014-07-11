@@ -19,11 +19,14 @@ class SmartDB {
         $db_pass = $pass;
         $db_user = $user;
         mysql_connect($server, $db_user, $db_pass);
-        if(mysql_query("use SmartHouse")){
+        if(mysql_query("use SmartHome")){
         echo "Успех";}
         else{
         echo "Неудача";}
         }
+            function disconnect(){
+                mysql_close();
+            }
         
     }
             
