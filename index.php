@@ -13,8 +13,17 @@ and open the template in the editor.
         <?php   include 'SmartAPI.php';
         $smdb = new SmartAPI();
         $smdb->connect("localhost", "root", "");
-        $smdb->Get_Api();
-        
+        $smdb->Show_Api();
+        ?>
+        <form action="index.php" method="POST">
+            <input type="text" name = "test">
+            <button>Тест</button>
+        </form>
+        <?php
+        $test = $_POST['test'];
+        if($test!=''){
+        $smdb->Execute_Func('test_api',$test);}
+        $smdb->disconnect();
         ?>
     </body>
 </html>
