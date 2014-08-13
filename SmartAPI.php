@@ -27,7 +27,7 @@ class SmartAPI extends SmartDB {
             $args='';
             for($i=1; $i<$argsnum; $i++){
                 $args=$args.$args_list[$i].', ';
-           
+           }
             $func_name = func_get_arg('0');
             $sql = mysql_query("SELECT * FROM api_list WHERE name= '".$func_name."'");
             $row = mysql_fetch_array($sql);
@@ -37,7 +37,7 @@ class SmartAPI extends SmartDB {
              
             }
             else {echo 'Ошибка вызова функции API';}
-        }
+        
 }
 
             }
