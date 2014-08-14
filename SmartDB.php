@@ -25,6 +25,9 @@ class SmartDB {
                 mysql_close();
             }
         
+            function import($path){
+                mysql_query(file_get_contents($path));
+            }
     }
             
             
