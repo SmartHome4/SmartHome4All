@@ -5,6 +5,7 @@ $Message = "Новое состояние"
 
 $form = new-object Windows.Forms.Form
 $form.Text = "Коммит к новому состоянию"
+$form.Height = 400
 
 $lable = New-Object Windows.Forms.Label
 $lable.Text = "Коммит:"
@@ -19,69 +20,51 @@ $text.Width = 300
 $text.TabIndex = 1
 
 $button = new-object Windows.Forms.Button
-$button.Location = New-Object System.Drawing.Point(100,200)
+$button.Location = New-Object System.Drawing.Point(80,300)
 $button.Text = "Отправить коммит"
 $button.add_click({$Message = $text.Text, $form.Close()})
 
 $lableDel = New-Object Windows.Forms.Label
 $lableDel.Text = "Удалить файлы"
-$lableDel.Location = New-Object System.Drawing.Point(20,100)
+$lableDel.Location = New-Object System.Drawing.Point(30,100)
 
 $lableAdd = New-Object Windows.Forms.Label
 $lableAdd.Text = "Добавить файлы"
-$lableAdd.Location = New-Object System.Drawing.Point(150,100)
+$lableAdd.Location = New-Object System.Drawing.Point(30,170)
 
-$radioDel = new-Object Windows.Forms.RadioButton
-$radioDel.Location = New-Object System.Drawing.Point(20, 120)
-$radioDel.add_click({$Command = "rm"})
-$radioDel.TabIndex = 2
+$textDel = new-object Windows.Forms.TextBox
+$textDel.Location = new-object System.Drawing.Point(30, 130)
+$del = ""
+$textDel.Text = $del
+$textDel.add_click({$textDell.SelectAll()})
+$textDel.add_TextChanged({$del = $textDel.Text})
+$textDel.Width = 200
+$textDel.TabIndex = 4
 
-$radioAdd = new-Object Windows.Forms.RadioButton
-$radioAdd.Location = New-Object System.Drawing.Point(150, 120)
-$radioAdd.add_click({$Command = "add"})
-$radioAdd.TabIndex = 3
-
-$lableName = new-object Windows.Forms.Label
-$lableName.Location = New-Object System.Drawing.Point(20, 150)
-$lableName.Text = "Имена файлов и папок"
-$lableName.Width = 300
-
-$textName = new-object Windows.Forms.TextBox
-$textName.Location = new-object System.Drawing.Point(50, 170)
+$textAdd = new-object Windows.Forms.TextBox
+$textAdd.Location = new-object System.Drawing.Point(30, 200)
 $files = "."
-$textName.Text = $files
-$textName.add_click({$textName.SelectAll()})
-$textName.add_TextChanged({$files = $textName.Text})
-$textName.Width = 200
-$textName.TabIndex = 4
+$textAdd.Text = $files
+$textAdd.add_click({$textAdd.SelectAll()})
+$textAdd.add_TextChanged({$files = $textAdd.Text})
+$textAdd.Width = 200
+$textAdd.TabIndex = 4
 
-if ($radioDel.Checked){
-	$Command = "rm"
-	
-}
-
-if ($radioAdd.Checked){
-	$Command = "add"
-}
-
-$form.Controls.Add($textName)
+$form.Controls.Add($textDel)
 $form.Controls.Add($button)
-$form.Controls.Add($lableName)
 $form.Controls.Add($lableDel)
 $form.Controls.Add($lableAdd)
-$form.Controls.Add($radioAdd)
-$form.Controls.Add($radioDel)
+$form.Controls.Add($TextAdd)
 $form.Controls.Add($text)
 $form.Controls.Add($lable)
 $form.Add_Shown({$form.Activate()})
 $form.ShowDialog()
 
-
-
 cd C:/Users//Oleg//Documents//GitHub//SmartHome4All
 
 git checkout Develop
-git $Command $files
+git rm $del
+git add $files
 git commit -m $Message
 git remote add SmartHome4All https://github.com/SmartHome4/SmartHome4All.git
 git pull SmartHome4All Develop
