@@ -10,9 +10,9 @@
     <meta name="author" content="">
 
     <title>Видеонаблюдение</title>
-	
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="home.ico">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="home.ico">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
     <div id="wrapper">
 
-         <!-- Navigation -->
+        <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -50,24 +50,9 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-               
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Demonzarov <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Сообщения</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Выход</a>
-                        </li>
-                    </ul>
+                <li><a href="#"><i class="fa fa-clock-o"></i> 9:49 </a>
+                </li>
+                <li><a href="#"><i class="fa fa-calendar"></i> 17.08.2014</a>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -76,18 +61,14 @@
                     <li>
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Состояние</a>
                     </li>
+                    <li class="active">
+                        <a href="video.html"><i class="fa fa-fw fa-video-camera"></i> Видеонаблюдение</a>
+                    </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Статистика</a>
+                        <a href="settings.html"><i class="fa fa-fw fa-gear"></i> Настройки</a>
                     </li>
-					
-					<li class="active">
-                        <a href="#"><i class="fa fa-fw fa-video-camera"></i> Видеонаблюдение</a>
-                    </li>
-					<li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                    </li>
-					<li>
-                        <a href="#"><i class="fa fa-fw fa-info"></i> SmartHome 0.1</a>
+                    <li>
+                        <a href="about.html"><i class="fa fa-fw fa-info"></i> SmartHome 0.1</a>
                     </li>
                 </ul>
             </div>
@@ -98,10 +79,10 @@
 
             <div class="container-fluid">
 
-			<!-- Page Heading -->
+                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                       <ol class="breadcrumb">
+                        <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Панель управления</a>
                             </li>
@@ -112,35 +93,70 @@
                     </div>
                 </div>
                 <!-- /.row -->
-				
-				<div class="row">
+
+                <div class="row">
                     <div class="col-lg-6">
-					<div class="panel panel-default">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-video-camera fa-fw"></i> Камера 1</h3>
                             </div>
                             <div class="panel-body">
-							<a href="http://178.136.254.251:8080/stream" id="player" style="display: block; width: 99%; height: 400px"><object width="100%" height="100%" id="player_api" data="http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf" type="application/x-shockwave-flash"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="quality" value="high"><param name="cachebusting" value="false"><param name="bgcolor" value="#000000"><param name="flashvars" value="config={&quot;clip&quot;:{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;},&quot;playerId&quot;:&quot;player&quot;,&quot;playlist&quot;:[{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;}]}"></object></a>
-							<br><script>flowplayer("player","http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf",{  clip:{  autoPlay:true,  autoBuffering:false  }});</script>
+                                <a href="http://178.136.254.251:8080/stream" id="player" style="display: block; width: 99%; height: 400px">
+                                    <object width="100%" height="100%" id="player_api" data="http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf" type="application/x-shockwave-flash">
+                                        <param name="allowfullscreen" value="true">
+                                        <param name="allowscriptaccess" value="always">
+                                        <param name="quality" value="high">
+                                        <param name="cachebusting" value="false">
+                                        <param name="bgcolor" value="#000000">
+                                        <param name="flashvars" value="config={&quot;clip&quot;:{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;},&quot;playerId&quot;:&quot;player&quot;,&quot;playlist&quot;:[{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;}]}">
+                                    </object>
+                                </a>
+                                <br>
+                                <script>
+                                    flowplayer("player", "http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf", {
+                                        clip: {
+                                            autoPlay: true,
+                                            autoBuffering: false
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
-					
-					        <div class="col-lg-6">
-					<div class="panel panel-default">
+
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-video-camera fa-fw"></i> Камера 2</h3>
                             </div>
                             <div class="panel-body center-block">
-							<a href="http://178.136.254.251:8080/stream" id="player" style="display: block; width: 99%; height: 400px	"><object width="100%" height="100%" id="player_api" data="http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf" type="application/x-shockwave-flash"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="quality" value="high"><param name="cachebusting" value="false"><param name="bgcolor" value="#000000"><param name="flashvars" value="config={&quot;clip&quot;:{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;},&quot;playerId&quot;:&quot;player&quot;,&quot;playlist&quot;:[{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;}]}"></object></a>
-							<br><script>flowplayer("player","http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf",{  clip:{  autoPlay:true,  autoBuffering:false  }});</script>
+                                <a href="http://178.136.254.251:8080/stream" id="player" style="display: block; width: 99%; height: 400px	">
+                                    <object width="100%" height="100%" id="player_api" data="http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf" type="application/x-shockwave-flash">
+                                        <param name="allowfullscreen" value="true">
+                                        <param name="allowscriptaccess" value="always">
+                                        <param name="quality" value="high">
+                                        <param name="cachebusting" value="false">
+                                        <param name="bgcolor" value="#000000">
+                                        <param name="flashvars" value="config={&quot;clip&quot;:{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;},&quot;playerId&quot;:&quot;player&quot;,&quot;playlist&quot;:[{&quot;autoPlay&quot;:true,&quot;autoBuffering&quot;:false,&quot;url&quot;:&quot;http://178.136.254.251:8080/stream&quot;}]}">
+                                    </object>
+                                </a>
+                                <br>
+                                <script>
+                                    flowplayer("player", "http://worontsovpalace.com.ua/flowplayer/flowplayer-3.2.7.swf", {
+                                        clip: {
+                                            autoPlay: true,
+                                            autoBuffering: false
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
-					
 
-				 </div>
-			 <br /> <br />	
+
+                </div>
+                <br />
+                <br />
 
             </div>
             <!-- /#page-wrapper -->
