@@ -59,11 +59,17 @@ return i;
 <!-- alert-->
 
 <script>
-    function security_change() {
-	if(this.className == 'btn btn-xs btn-warning'){
-		this.className = 'btn btn-xs btn-success'}
-		else{this.className  = 'btn btn-xs btn-warning'}
+        function security_change(option) {
+	var button_class = $('#'+option+'').attr('class');
+        if (button_class === "btn btn-xs btn-success"){
+            button_class = "btn btn-xs btn-warning";}
+        else
+        {
+            button_class ="btn btn-xs btn-success";
+        }
+        $('#'+option+'').attr('class', button_class);
     }
+    
   </script>
   
   
@@ -177,17 +183,17 @@ document.write (ld.toLocaleDateString());
                             <div class="panel-body">
 							
                                 <i class="fa fa-shield fa-lg fa-fw"></i> Сигнализация:
-                                <button type="button" class="btn btn-xs btn-success" onclick="security_change()">включена</button>
+                                <button id = "secure_alarm" type="button" class="btn btn-xs btn-success" onclick="security_change(this.id)">включена</button>
                                 <br>
                                 <i class="fa fa-video-camera fa-lg fa-fw"></i> Видеонаблюдение:
-                                <button type="button" class="btn btn-xs btn-warning" onclick="security_change()">вылючено</button>
+                                <button id = "secure_camera" type="button" class="btn btn-xs btn-warning" onclick="security_change(this.id)">вылючено</button>
                                 <br>
                                 <i class="fa fa-car fa-lg fa-fw"></i> Гараж:
-                                <button type="button" class="btn btn-xs btn-success" onclick="security_change()">закрыт</button>
+                                <button id = "secure_garazh" type="button" class="btn btn-xs btn-success" onclick="security_change(this.id)">закрыт</button>
                                 <br>
 							
                                 <i class="fa fa-key fa-lg fa-fw"></i> Парадные двери:
-								<button type="button" class="btn btn-xs btn-warning" onclick="security_change()" >открыты</button>
+				<button id ="secure_doors"  type="button" class="btn btn-xs btn-warning" onclick="security_change(this.id)" >открыты</button>
 
 
 
