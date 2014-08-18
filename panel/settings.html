@@ -30,9 +30,30 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+function startTime()
+{
+var tm=new Date();
+var h=tm.getHours();
+var m=tm.getMinutes();
+var s=tm.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('time').innerHTML=h+":"+m; 
+t=setTimeout('startTime()',500);
+}
+function checkTime(i)
+{
+if (i<10)
+{
+i="0" + i;
+}
+return i;
+}
+</script>
 </head>
 
-<body>
+<body onload="startTime()">
 
     <div id="wrapper">
 
@@ -49,10 +70,13 @@
                 <a class="navbar-brand" href="index.html">SmartHome</a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#"><i class="fa fa-clock-o"></i> 9:49 </a>
+ <ul class="nav navbar-right top-nav">				
+				<li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
                 </li>
-                <li><a href="#"><i class="fa fa-calendar"></i> 17.08.2014</a>
+                <li><a href="#"><i class="fa fa-calendar"></i> <script type="text/javascript">
+var ld = new Date();
+document.write (ld.toLocaleDateString());
+</script></a>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,10 +28,31 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	
+<script type="text/javascript">
+function startTime()
+{
+var tm=new Date();
+var h=tm.getHours();
+var m=tm.getMinutes();
+var s=tm.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('time').innerHTML=h+":"+m; 
+t=setTimeout('startTime()',500);
+}
+function checkTime(i)
+{
+if (i<10)
+{
+i="0" + i;
+}
+return i;
+}
+</script>
 </head>
 
-<body>
+<body onload="startTime()">
 
     <div id="wrapper">
 
@@ -48,11 +68,16 @@
                 </button>
                 <a class="navbar-brand" href="index.html">SmartHome</a>
             </div>
+			
+
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#"><i class="fa fa-clock-o"></i> 9:49 </a>
+            <ul class="nav navbar-right top-nav">				
+				<li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
                 </li>
-                <li><a href="#"><i class="fa fa-calendar"></i> 17.08.2014</a>
+                <li><a href="#"><i class="fa fa-calendar"></i> <script type="text/javascript">
+var ld = new Date();
+document.write (ld.toLocaleDateString());
+</script></a>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -87,7 +112,7 @@
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Панель управления</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-info"></i> SmartHome
+                                <i class="fa fa-info"></i> SmartHome 
                             </li>
                         </ol>
                     </div>
@@ -98,6 +123,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">«Умный дом» в каждый дом!</h1>
 
+						
                         <br />
                         <br />
                         <hr />Последнее обновление: <i>16.08.2014</i>.

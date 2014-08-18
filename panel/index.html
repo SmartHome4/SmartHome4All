@@ -33,9 +33,44 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+function startTime()
+{
+var tm=new Date();
+var h=tm.getHours();
+var m=tm.getMinutes();
+var s=tm.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('time').innerHTML=h+":"+m; 
+t=setTimeout('startTime()',500);
+}
+function checkTime(i)
+{
+if (i<10)
+{
+i="0" + i;
+}
+return i;
+}
+</script>
+
+
+<!-- alert-->
+
+<script>
+    function security_change() {
+	if(this.className == 'btn btn-xs btn-warning'){
+		this.className = 'btn btn-xs btn-success'}
+		else{this.className  = 'btn btn-xs btn-warning'}
+    }
+  </script>
+  
+  
+  
 </head>
 
-<body>
+<body onload="startTime()">
 
     <div id="wrapper">
 
@@ -52,10 +87,13 @@
                 <a class="navbar-brand" href="index.html">SmartHome</a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#"><i class="fa fa-clock-o"></i> 9:49 </a>
+ <ul class="nav navbar-right top-nav">				
+				<li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
                 </li>
-                <li><a href="#"><i class="fa fa-calendar"></i> 17.08.2014</a>
+                <li><a href="#"><i class="fa fa-calendar"></i> <script type="text/javascript">
+var ld = new Date();
+document.write (ld.toLocaleDateString());
+</script></a>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -137,17 +175,19 @@
                                 <h3 class="panel-title"><i class="fa fa-lock fa-fw"></i> Безопасность</h3>
                             </div>
                             <div class="panel-body">
+							
                                 <i class="fa fa-shield fa-lg fa-fw"></i> Сигнализация:
-                                <button type="button" class="btn btn-xs btn-success">включена</button>
+                                <button type="button" class="btn btn-xs btn-success" onclick="security_change()">включена</button>
                                 <br>
                                 <i class="fa fa-video-camera fa-lg fa-fw"></i> Видеонаблюдение:
-                                <button type="button" class="btn btn-xs btn-warning">вылючено</button>
+                                <button type="button" class="btn btn-xs btn-warning" onclick="security_change()">вылючено</button>
                                 <br>
                                 <i class="fa fa-car fa-lg fa-fw"></i> Гараж:
-                                <button type="button" class="btn btn-xs btn-success">закрыт</button>
+                                <button type="button" class="btn btn-xs btn-success" onclick="security_change()">закрыт</button>
                                 <br>
+							
                                 <i class="fa fa-key fa-lg fa-fw"></i> Парадные двери:
-                                <button type="button" class="btn btn-xs btn-warning">открыты</button>
+								<button type="button" class="btn btn-xs btn-warning" onclick="security_change()" >открыты</button>
 
 
 
@@ -207,5 +247,4 @@
     <script src="js/plugins/morris/morris-data.js"></script>
 
 </body>
-
 </html>
