@@ -62,10 +62,12 @@ return i;
         function security_change(option) {
 	var button_class = $('#'+option+'').attr('class');
         if (button_class === "btn btn-xs btn-success"){
-            button_class = "btn btn-xs btn-warning";}
+            button_class = "btn btn-xs btn-warning";
+            $('#'+option+'').text('выключено');}
         else
         {
             button_class ="btn btn-xs btn-success";
+            $('#'+option+'').text('включено');
         }
         $('#'+option+'').attr('class', button_class);
     }
