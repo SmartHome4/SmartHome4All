@@ -32,53 +32,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-<script type="text/javascript">
-function startTime()
-{
-var tm=new Date();
-var h=tm.getHours();
-var m=tm.getMinutes();
-var s=tm.getSeconds();
-m=checkTime(m);
-s=checkTime(s);
-document.getElementById('time').innerHTML=h+":"+m; 
-t=setTimeout('startTime()',500);
-}
-function checkTime(i)
-{
-if (i<10)
-{
-i="0" + i;
-}
-return i;
-}
-</script>
-
-
-<!-- alert-->
-
-<script>
-        function security_change(option) {
-	var button_class = $('#'+option+'').attr('class');
-        if (button_class === "btn btn-xs btn-success"){
-            button_class = "btn btn-xs btn-warning";
-            $('#'+option+'').text('выключено');}
-        else
-        {
-            button_class ="btn btn-xs btn-success";
-            $('#'+option+'').text('включено');
-        }
-        $('#'+option+'').attr('class', button_class);
-    }
-    
-  </script>
-  
-  
-  
+ 
 </head>
 
-<body onload="startTime()">
+<body onload="startTime();">
 
     <div id="wrapper">
 
@@ -185,17 +142,17 @@ document.write (ld.toLocaleDateString());
                             <div class="panel-body">
 							
                                 <i class="fa fa-shield fa-lg fa-fw"></i> Сигнализация:
-                                <button id = "secure_alarm" type="button" class="btn btn-xs btn-success" onclick="security_change(this.id)">включена</button>
+                                <button id = "secure_alarm" type="button" class="btn btn-xs btn-success" onclick="securityRefresh(this.id)">включена</button>
                                 <br>
                                 <i class="fa fa-video-camera fa-lg fa-fw"></i> Видеонаблюдение:
-                                <button id = "secure_camera" type="button" class="btn btn-xs btn-warning" onclick="security_change(this.id)">вылючено</button>
+                                <button id = "secure_camera" type="button" class="btn btn-xs btn-warning" onclick="securityRefresh(this.id)">вылючено</button>
                                 <br>
                                 <i class="fa fa-car fa-lg fa-fw"></i> Гараж:
-                                <button id = "secure_garazh" type="button" class="btn btn-xs btn-success" onclick="security_change(this.id)">закрыт</button>
+                                <button id = "secure_garage" type="button" class="btn btn-xs btn-success" onclick="securityRefresh(this.id)">закрыт</button>
                                 <br>
 							
                                 <i class="fa fa-key fa-lg fa-fw"></i> Парадные двери:
-				<button id ="secure_doors"  type="button" class="btn btn-xs btn-warning" onclick="security_change(this.id)" >открыты</button>
+				<button id ="secure_doors"  type="button" class="btn btn-xs btn-warning" onclick="securityRefresh(this.id)" >открыты</button>
 
 
 
@@ -253,6 +210,9 @@ document.write (ld.toLocaleDateString());
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
-
+    
+    <!-- SmartHome Handlers of panel JavaScript -->
+    <script src="HandlersOfPanel.js"></script>
+      <script>window.onload = securityRefresh('load');</script>
 </body>
 </html>
