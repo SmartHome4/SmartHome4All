@@ -25,8 +25,8 @@ i="0" + i;
 return i;
 }
 
-function securityRefresh(idd){
-    var e = "secure_resp";
+function securityRefresh(idd, e){
+    
     var params = {
         id:idd,
         event:e

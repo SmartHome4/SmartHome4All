@@ -16,7 +16,7 @@
 header('Content-Type: application/json; charset=utf8');
 $event = filter_input(INPUT_GET, 'event');
 switch ($event){
-    case "secure_resp":{
+    case "control_button":{
         $id = $_GET['id'];
         if($id == 'load'){
             $sql = mysql_query("SELECT * FROM security");
