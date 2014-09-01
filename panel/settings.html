@@ -20,6 +20,48 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+
+    <style>
+        #tab2,
+        #tab3 {
+            position: fixed;
+        }
+        .menu1 > a,
+        .menu1 #tab2:target ~ a:nth-of-type(1),
+        .menu1 #tab3:target ~ a:nth-of-type(1),
+        .menu1 > div {
+            padding: 5px;
+        }
+        .menu1 > a {
+            line-height: 28px;
+            text-decoration: none;
+            color: #333;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-right: 5px;
+            border: 1px solid transparent;
+            border-color: #ccc;
+        }
+        #tab2,
+        #tab3,
+        .menu1 > div,
+        .menu1 #tab2:target ~ div:nth-of-type(1),
+        .menu1 #tab3:target ~ div:nth-of-type(1) {
+            display: none;
+        }
+        .menu1 > div:nth-of-type(1),
+        .menu1 #tab2:target ~ div:nth-of-type(2),
+        .menu1 #tab3:target ~ div:nth-of-type(3) {
+            display: block;
+        }
+        .menu1 > a:nth-of-type(1),
+        .menu1 #tab2:target ~ a:nth-of-type(2),
+        .menu1 #tab3:target ~ a:nth-of-type(3) {
+            border-bottom: 2px solid #fff;
+        }
+    </style>
+
+
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -30,27 +72,26 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<script type="text/javascript">
-function startTime()
-{
-var tm=new Date();
-var h=tm.getHours();
-var m=tm.getMinutes();
-var s=tm.getSeconds();
-m=checkTime(m);
-s=checkTime(s);
-document.getElementById('time').innerHTML=h+":"+m; 
-t=setTimeout('startTime()',500);
-}
-function checkTime(i)
-{
-if (i<10)
-{
-i="0" + i;
-}
-return i;
-}
-</script>
+    <script type="text/javascript">
+        function startTime() {
+            var tm = new Date();
+            var h = tm.getHours();
+            var m = tm.getMinutes();
+            var s = tm.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m;
+            t = setTimeout('startTime()', 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+
 </head>
 
 <body onload="startTime()">
@@ -70,8 +111,8 @@ return i;
                 <a class="navbar-brand" href="index.html">SmartHome</a>
             </div>
             <!-- Top Menu Items -->
- <ul class="nav navbar-right top-nav">				
-				<li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
+            <ul class="nav navbar-right top-nav">
+                <li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
                 </li>
                 <li><a href="#"><i class="fa fa-calendar"></i> <script type="text/javascript">
 var ld = new Date();
@@ -90,9 +131,6 @@ document.write (ld.toLocaleDateString());
                     </li>
                     <li class="active">
                         <a href="settings.html"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                    </li>
-                    <li>
-                        <a href="about.html"><i class="fa fa-fw fa-info"></i> SmartHome 0.1</a>
                     </li>
                 </ul>
             </div>
@@ -114,39 +152,76 @@ document.write (ld.toLocaleDateString());
                                 <i class="fa fa-gear"></i> Настройки
                             </li>
                         </ol>
-                    </div>
-                </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Настройки</h1>
 
-                        <form role="form">
+                        <div class="menu1">
+                            <br id="tab2" />
+                            <br id="tab3" />
+                            <a href="#tab1">Общее</a><a href="#tab2">Плагины</a><a href="#tab3">О системе</a>
+                            <br>
+                            <div>
+                                <h2>Основные настройки</h2>
+                                <form role="form">
 
-                            <div class="form-group">
-                                <label>Как к вам обращаться?</label>
-                                <input name="username" class="form-control" placeholder="Мой господин">
+                                    <div class="form-group">
+                                        <label>Как к вам обращаться?</label>
+                                        <input name="username" class="form-control" placeholder="Мой господин">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Придумайте имя дому</label>
+                                        <input name="homename" class="form-control" placeholder="Дом, раб, эй">
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button type="submit" class="btn btn-default">Сохранить</button>
+                                    <button type="reset" class="btn btn-default">Отмена</button>
+
+                                </form>
                             </div>
+                            <div>
+                                <h2>Настройка плагинов</h2>
+                                <br>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">Автоматическая настройка плагинов
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">Автообновление плагинов
+                                    </label>
 
-                            <div class="form-group">
-                                <label>Придумайте имя дому</label>
-                                <input name="homename" class="form-control" placeholder="Дом, раб, эй">
+
+                                </div>
+                                <br>
+                                <br>
+
+                                <button type="submit" class="btn btn-default">Сохранить</button>
+                                <button type="reset" class="btn btn-default">Отмена</button>
                             </div>
+                            <div>
+                                <h2>SmartHome <small>0.11</small></h2>
+                                <p>Создаем будущее.</p>
+                                <br>
+                                <hr>Последнее обновление: <i>16.08.2014</i>.
+                                <br />
+                                <br />
+                                <button type="button" class="btn btn-sm btn-default"><i class="fa fa-refresh"></i> Проверить обновления вручную</button>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
 
 
-
-                            <button type="submit" class="btn btn-default">Сохранить</button>
-                            <button type="reset" class="btn btn-default">Отмена</button>
-
-                        </form>
-
-
-                        <br />
-                        <hr />Последнее обновление: <i>16.08.2014</i>.
-                        <br />
-                        <br />
-                        <button type="button" class="btn btn-sm btn-default"><i class="fa fa-refresh"></i> Проверить обновления вручную</button>
 
                     </div>
                 </div>

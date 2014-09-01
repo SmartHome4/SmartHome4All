@@ -30,27 +30,25 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<script type="text/javascript">
-function startTime()
-{
-var tm=new Date();
-var h=tm.getHours();
-var m=tm.getMinutes();
-var s=tm.getSeconds();
-m=checkTime(m);
-s=checkTime(s);
-document.getElementById('time').innerHTML=h+":"+m; 
-t=setTimeout('startTime()',500);
-}
-function checkTime(i)
-{
-if (i<10)
-{
-i="0" + i;
-}
-return i;
-}
-</script>
+    <script type="text/javascript">
+        function startTime() {
+            var tm = new Date();
+            var h = tm.getHours();
+            var m = tm.getMinutes();
+            var s = tm.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m;
+            t = setTimeout('startTime()', 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
 </head>
 
 <body onload="startTime()">
@@ -70,8 +68,8 @@ return i;
                 <a class="navbar-brand" href="index.html">SmartHome</a>
             </div>
             <!-- Top Menu Items -->
- <ul class="nav navbar-right top-nav">				
-				<li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
+            <ul class="nav navbar-right top-nav">
+                <li><a href="#"><i class="fa fa-clock-o"></i> <span id="time"></span></a>
                 </li>
                 <li><a href="#"><i class="fa fa-calendar"></i> <script type="text/javascript">
 var ld = new Date();
@@ -90,9 +88,6 @@ document.write (ld.toLocaleDateString());
                     </li>
                     <li>
                         <a href="settings.html"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                    </li>
-                    <li>
-                        <a href="about.html"><i class="fa fa-fw fa-info"></i> SmartHome 0.1</a>
                     </li>
                 </ul>
             </div>
