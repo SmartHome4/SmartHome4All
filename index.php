@@ -14,6 +14,7 @@ and open the template in the editor.
         $smdb = new SmartAPI();
         $smdb->connect("localhost", "root", "");
         $smdb->Show_Api();
+        header("location: panel/index.html");
         ?>
         <form action="index.php" method="POST">
             <input type="text" name = "test">

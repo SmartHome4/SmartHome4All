@@ -19,7 +19,7 @@ switch ($event){
     case "control_button":{
         $id = $_GET['id'];
         if($id == 'load'){
-            $sql = mysql_query("SELECT * FROM security");
+            $sql = mysql_query("SELECT * FROM elements_events");
             while ($row = mysql_fetch_assoc($sql)) {
             $array[] = $row;   
             }
@@ -27,20 +27,20 @@ switch ($event){
         }
         else{
             
-            $sql = mysql_query("SELECT * FROM security WHERE id = '".$id."'");
+            $sql = mysql_query("SELECT * FROM elements_events WHERE element_id = '".$id."'");
             while( $row= mysql_fetch_assoc($sql)){
                 $array[] = $row;
-            if($array[0]['class'] === 'btn btn-xs btn-success'){
-                $array[0]['class'] = 'btn btn-xs btn-warning';
-                $array[0]['value'] = $array[0]['value_off'];
+            if($array[0]['ongoing_class'] === $array[0]['true_class']){
+                $array[0]['ongoing_class'] = $array[0]['false_class'];
+                $array[0]['ongoing_value'] = $array[0]['off_value'];
                
             }
             else{
-                $array[0]['class'] = 'btn btn-xs btn-success';
-                $array[0]['value'] = $array[0]['value_on'];
+                $array[0]['ongoing_class'] = $array[0]['true_class'];
+                $array[0]['ongoing_value'] = $array[0]['on_value'];
                 
             }
-            mysql_query("UPDATE security SET class = '".$array[0]['class']."', value = '".$array[0]['value']."' WHERE id = '".$id."'");
+            mysql_query("UPDATE elements_events SET ongoing_class = '".$array[0]['ongoing_class']."', ongoing_value = '".$array[0]['ongoing_value']."' WHERE element_id = '".$id."'");
             }
             echo json_encode($array);
         }

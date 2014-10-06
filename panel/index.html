@@ -147,17 +147,17 @@ document.write (ld.toLocaleDateString());
                             <div class="panel-body">
 
                                 <i class="fa fa-bell fa-lg fa-fw"></i> Сигнализация:
-                                <button id="secure_alarm" name="control_button" type="button" class="btn btn-xs btn-success" onclick="securityRefresh(this.id, this.name)">включена</button>
+                                <button id="secure_alarm" name="control_button" type="button" class="btn btn-xs btn-success" onclick=" elementEvent(this.id, this.name)"></button>
                                 <br>
                                 <i class="fa fa-video-camera fa-lg fa-fw"></i> Видеонаблюдение:
-                                <button id="secure_camera" name="control_button" type="button" class="btn btn-xs btn-warning" onclick="securityRefresh(this.id, this.name)">вылючено</button>
+                                <button id="secure_camera" name="control_button" type="button" class="btn btn-xs btn-warning" onclick=" elementEvent(this.id, this.name)"></button>
                                 <br>
                                 <i class="fa fa-car fa-lg fa-fw"></i> Гараж:
-                                <button id="secure_garage" name="control_button" type="button" class="btn btn-xs btn-success" onclick="securityRefresh(this.id, this.name)">закрыт</button>
+                                <button id="secure_garage" name="control_button" type="button" class="btn btn-xs btn-success" onclick=" elementEvent(this.id, this.name)"></button>
                                 <br>
 
                                 <i class="fa fa-key fa-lg fa-fw"></i> Парадные двери:
-                                <button id="secure_doors" name="control_button" type="button" class="btn btn-xs btn-warning" onclick="securityRefresh(this.id, this.name)">открыты</button>
+                                <button id="secure_doors" name="control_button" type="button" class="btn btn-xs btn-warning" onclick=" elementEvent(this.id, this.name)"></button>
 
 
 
@@ -219,7 +219,7 @@ document.write (ld.toLocaleDateString());
     <!-- SmartHome Handlers of panel JavaScript -->
     <script src="HandlersOfPanel.js"></script>
     <script>
-        window.onload = securityRefresh('load', 'control_button');
+        window.onload = elementEvent('load', 'control_button');
         startTime();
     </script>
 </body>

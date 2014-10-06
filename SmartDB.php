@@ -20,6 +20,7 @@ class SmartDB {
         $db_user = $user;
         mysql_connect($server, $db_user, $db_pass);
         mysql_select_db("SmartHome");
+            
         }
             function disconnect(){
                 mysql_close();

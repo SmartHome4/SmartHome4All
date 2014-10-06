@@ -9,8 +9,24 @@
  *  @author 'Oleg Fominsky'
  */
 
-$path = "Instal_Tables.sql";
+// install core tables
+$path = "residents.sql";
+        $server = 'localhost';
+        $db_pass = '';
+        $db_user = 'root';
+        mysql_connect($server, $db_user, $db_pass);
+        mysql_query("CREATE DATABASE IF NOT EXISTS SmartHome CHARACTER SET utf8 COLLATE utf8_general_ci");
+        mysql_select_db("SmartHome");
+        mysql_query("SET NAMES 'utf8'"); 
+        mysql_query("SET CHARACTER SET 'utf8'"); 
+        mysql_query("SET SESSION collation_connection = 'utf8_general_ci'");
+        $sql = file_get_contents($path); 
+mysql_query($sql) or die(mysql_error());
+$path = "voice_control.sql";
+$sql = file_get_contents($path); 
+mysql_query($sql) or die(mysql_error());
+$path = "elementsEvents.sql";
+$sql = file_get_contents($path); 
+mysql_query($sql) or die(mysql_error());
 
-$sql = new SmartDB();
-$sql->connect('localhost', 'root', '');
-$sql->import($path);
+echo 'Установка прошла успешно! Пожалуйста, перейдите в <a href="../index.php">Панель управления</a>'; 

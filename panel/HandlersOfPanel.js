@@ -25,7 +25,7 @@ i="0" + i;
 return i;
 }
 
-function securityRefresh(idd, e){
+function elementEvent(idd, e){
     
     var params = {
         id:idd,
@@ -38,8 +38,8 @@ function securityRefresh(idd, e){
         data:params,
         success: function(data){
             $.each(data, function(){ 
-                $('#'+this.id+'').attr('class', this.class);
-                $('#'+this.id+'').text(this.value);
+                $('#'+this.element_id+'').attr('class', this.ongoing_class);
+                $('#'+this.element_id+'').text(this.ongoing_value);
         });
     },
         error: function(){

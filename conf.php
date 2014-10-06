@@ -1,6 +1,6 @@
 <?php
 
-        $server = 'smarthome';
+        $server = 'localhost';
         $db_pass = '';
         $db_user = 'root';
         mysql_connect($server, $db_user, $db_pass);

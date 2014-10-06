@@ -1,0 +1,6 @@
+CREATE TABLE residents (
+id INT AUTO_INCREMENT,
+num_of_tabs TINYINT DEFAULT 1,
+acces_priv SMALLINT DEFAULT 1,
+PRIMARY KEY (id)
+)
