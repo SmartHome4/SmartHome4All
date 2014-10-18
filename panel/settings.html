@@ -94,7 +94,7 @@
 
 </head>
 
-<body onload="startTime()">
+<body onload="startTime(); $('#dev_button').hide();">
 
     <div id="wrapper">
 
@@ -176,6 +176,7 @@ document.write (ld.toLocaleDateString());
                                     <br>
                                     <button type="submit" class="btn btn-default">Сохранить</button>
                                     <button type="reset" class="btn btn-default">Отмена</button>
+                                    
 
                                 </form>
                             </div>
@@ -200,15 +201,17 @@ document.write (ld.toLocaleDateString());
                                 <button type="submit" class="btn btn-default">Сохранить</button>
                                 <button type="reset" class="btn btn-default">Отмена</button>
                             </div>
-                            <div>
+                            <div class="status_of_the_system" onclick="check_dev();">
                                 <h2>SmartHome <small>0.11</small></h2>
                                 <p>Создаем будущее.</p>
                                 <br>
                                 <hr>Последнее обновление: <i>16.08.2014</i>.
+                                
                                 <br />
                                 <br />
                                 <button type="button" class="btn btn-sm btn-default"><i class="fa fa-refresh"></i> Проверить обновления вручную</button>
                             </div>
+                            <button id="dev_button"  class="btn btn-default" onclick="javascript:document.location.href='#tab2'">Инструменты разработчика</button>
                         </div>
                         <br>
                         <br>
@@ -242,6 +245,8 @@ document.write (ld.toLocaleDateString());
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- SmartHome Handlers of panel JavaScript -->
+    <script src="HandlersOfPanel.js"></script>
 
 </body>
 

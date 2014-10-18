@@ -29,7 +29,7 @@ class SmartAPI extends SmartDB {
                 $args=$args.$args_list[$i].', ';
            }
             $func_name = func_get_arg('0');
-            $sql = mysql_query("SELECT * FROM api_list WHERE name= '".$func_name."'");
+            $sql = mysql_query("SELECT * FROM API WHERE func_name= '".$func_name."'");
             $row = mysql_fetch_array($sql);
             if ($row['numargs'] == $argsnum-1){
                 $new_function = create_function($row['params'], ''.$row["function"].'');

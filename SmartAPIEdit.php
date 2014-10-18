@@ -1,4 +1,4 @@
-<?php
+<?php       include 'SmartAPI.php';       include 'conf.php';
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,6 +11,8 @@
  *
  * @author Олег
  */
-class SmartAPIEdit {
-    //put your code here
+class SmartAPIEdit extends SmartAPI {
+    function insert($name, $numargs, $code){
+        mysql_query("INSERT INTO API ('func_name', 'numargs', 'code') VALUES (".$name.", ".$numargs.", ".$code.")");
+    }
 }

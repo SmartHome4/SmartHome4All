@@ -47,3 +47,11 @@ function elementEvent(idd, e){
         }
     });
 }
+var dev_clicks = 0;
+function check_dev(){
+dev_clicks++;
+if(dev_clicks === 25){
+    alert("Поздравляем! Вам доступны функции разработчика!");
+        $("#dev_button").show();
+}
+};

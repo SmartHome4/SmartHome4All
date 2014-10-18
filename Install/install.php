@@ -20,13 +20,3 @@ $path = "residents.sql";
         mysql_query("SET NAMES 'utf8'"); 
         mysql_query("SET CHARACTER SET 'utf8'"); 
         mysql_query("SET SESSION collation_connection = 'utf8_general_ci'");
-        $sql = file_get_contents($path); 
-mysql_query($sql) or die(mysql_error());
-$path = "voice_control.sql";
-$sql = file_get_contents($path); 
-mysql_query($sql) or die(mysql_error());
-$path = "elementsEvents.sql";
-$sql = file_get_contents($path); 
-mysql_query($sql) or die(mysql_error());
-
-echo 'Установка прошла успешно! Пожалуйста, перейдите в <a href="../index.php">Панель управления</a>'; 
