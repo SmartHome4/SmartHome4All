@@ -15,9 +15,9 @@ class SmartAPI extends SmartDB {
             
     public
         function Show_Api (){
-    $result = mysql_query("SELECT * FROM api_list");
+    $result = mysqli_query("SELECT * FROM api_list");
             echo '<table width = 100% align = "center" border = 3 id = "API_table"> <caption>Таблица API функций</caption><tr><th>ID</th> <th>Имя функции</th> <th>Параметры функции</th> <th>Описание</th></tr>';
-    while($row = mysql_fetch_array($result)){
+    while($row = mysqli_fetch_array($result)){
             echo '<tr><td>'.$row["id"].'</td> <td>'.$row["name"].'</td> <td>'.$row['params'].'</td><td>'.$row['description'].'</td></tr>';}
             echo '</table>';
     }
@@ -29,8 +29,8 @@ class SmartAPI extends SmartDB {
                 $args=$args.$args_list[$i].', ';
            }
             $func_name = func_get_arg('0');
-            $sql = mysql_query("SELECT * FROM API WHERE func_name= '".$func_name."'");
-            $row = mysql_fetch_array($sql);
+            $sql = mysqli_query("SELECT * FROM API WHERE func_name= '".$func_name."'");
+            $row = mysqli_fetch_array($sql);
             if ($row['numargs'] == $argsnum-1){
                 $new_function = create_function($row['params'], ''.$row["function"].'');
                 echo $new_function($args);

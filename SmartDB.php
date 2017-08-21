@@ -12,22 +12,24 @@
  * @author Олег
  */
 class SmartDB {
-    
+    private 
+            $db_name = "SmartHome";
+
+
     public 
             function connect ($name, $user, $pass) {
         $server = $name;
         $db_pass = $pass;
         $db_user = $user;
-        mysql_connect($server, $db_user, $db_pass);
-        mysql_select_db("SmartHome");
+        mysqli_connect($server, $db_user, $db_pass, $this->db_name);
             
         }
             function disconnect(){
-                mysql_close();
+                mysqli_close();
             }
         
             function import($path){
-                mysql_query(file_get_contents($path));
+                mysqli_query(file_get_contents($path));
             }
     }
             

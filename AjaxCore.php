@@ -19,29 +19,29 @@ switch ($event){
     case "control_button":{
         $id = $_GET['id'];
         if($id == 'load'){
-            $sql = mysql_query("SELECT * FROM elements_events");
-            while ($row = mysql_fetch_assoc($sql)) {
+            $sql = mysqli_query($link, "SELECT * FROM elements_events");
+            while ($row = mysqli_fetch_assoc($sql)) {
             $array[] = $row;   
             }
             echo json_encode($array);
         }
         else{
             
-            $sql = mysql_query("SELECT * FROM elements_events WHERE element_id = '".$id."'");
-            while( $row= mysql_fetch_assoc($sql)){
+            $sql = mysqli_query($link, "SELECT * FROM elements_events WHERE element_id = '".$id."'");
+            while( $row= mysqli_fetch_assoc($sql)){
                 $array[] = $row;
             if($array[0]['enable'] == 1){
-                $array[0]['ongoing_class'] = $array[0]['false_class'];
+                $array[0]['ongoing_class'] = $array[0]['f_class'];
                 $array[0]['ongoing_value'] = $array[0]['off_value'];
                 $array[0]['enable'] = 0;
                
             }
             else{
-                $array[0]['ongoing_class'] = $array[0]['true_class'];
+                $array[0]['ongoing_class'] = $array[0]['t_class'];
                 $array[0]['ongoing_value'] = $array[0]['on_value'];
                 $array[0]['enable'] = 1;
             }
-            mysql_query("UPDATE elements_events SET ongoing_class = '".$array[0]['ongoing_class']."', ongoing_value = '".$array[0]['ongoing_value']."', enable = '".$array[0]['enable']."' WHERE element_id = '".$id."'");
+            mysqli_query($link, "UPDATE elements_events SET ongoing_class = '".$array[0]['ongoing_class']."', ongoing_value = '".$array[0]['ongoing_value']."', enable = '".$array[0]['enable']."' WHERE element_id = '".$id."'");
             }
             echo json_encode($array);
         }
